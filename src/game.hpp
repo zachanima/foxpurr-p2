@@ -1,0 +1,29 @@
+#ifndef GAME_HPP
+#define GAME_HPP
+
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/quaternion.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
+#include "lwcppgl/display.hpp"
+
+#include "entity.hpp"
+
+#define WIDTH (1280)
+#define HEIGHT (720)
+
+class Game {
+  public:
+    static GLvoid initialize();
+    static GLvoid deinitialize();
+    static GLvoid update();
+    static GLvoid render();
+
+  private:
+    static GLuint viewUniform;
+    static GLuint program;
+    static Entity *player;
+};
+
+#endif // GAME_HPP
