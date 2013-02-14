@@ -2,13 +2,13 @@
 #define GAME_HPP
 
 #include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/quaternion.hpp>
-#include <glm/gtc/type_ptr.hpp>
+#include <glm/gtc/matrix_transform.hpp> // glm::translate
+#include <glm/gtc/type_ptr.hpp> // glm::value_ptr
 
 #include "lwcppgl/display.hpp"
 
 #include "entity.hpp"
+#include "ship.hpp"
 
 #define WIDTH (1280)
 #define HEIGHT (720)
@@ -23,7 +23,7 @@ class Game {
   private:
     static GLuint viewUniform;
     static GLuint program;
-    static Entity *player;
+    static Ship *player;
 };
 
 #endif // GAME_HPP

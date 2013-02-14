@@ -2,7 +2,7 @@
 
 GLuint Game::program;
 GLuint Game::viewUniform;
-Entity *Game::player;
+Ship *Game::player;
 
 
 
@@ -17,7 +17,7 @@ GLvoid Game::initialize() {
 
   // Initialize entity.
   Entity::initialize();
-  player = new Entity();
+  player = new Ship();
 
   // Initialize uniforms.
   viewUniform =            glGetUniformLocation(program, "view");
@@ -44,6 +44,10 @@ GLvoid Game::update() {
   static GLuint ticks = SDL_GetTicks();
   const GLuint delta = SDL_GetTicks() - ticks;
   ticks = SDL_GetTicks();
+
+  if (Keyboard::isKeyDown(KEY_W)) {
+    player->thrust(delta);
+  }
 
   player->update(delta);
 }

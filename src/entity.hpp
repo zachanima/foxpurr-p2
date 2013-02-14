@@ -1,5 +1,5 @@
-#ifndef OCTREE_HPP
-#define OCTREE_HPP
+#ifndef ENTITY_HPP
+#define ENTITY_HPP
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp> // glm::translate
@@ -17,10 +17,13 @@ class Entity {
     GLvoid update(GLuint);
     GLvoid render(GLuint);
 
-  private:
+  protected:
     glm::vec2 position;
+    GLfloat rotation;
+
+  private:
     static GLuint ibo;
     static GLuint vbo;
 };
 
-#endif // OCTREE_HPP
+#endif // ENTITY_HPP

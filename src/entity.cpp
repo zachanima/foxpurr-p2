@@ -5,13 +5,12 @@ GLuint Entity::vbo;
 
 
 
-Entity::Entity() {
+Entity::Entity() : rotation(0.f) {
 }
 
 
 
-Entity::Entity(glm::vec2 &position) {
-  this->position = position;
+Entity::Entity(glm::vec2 &position) : position(position), rotation(0.f) {
 }
 
 
@@ -25,8 +24,8 @@ GLvoid Entity::initialize() {
   Vertex vs[4];
   vs[0].r = glm::vec2(-.5f, -.5f);
   vs[1].r = glm::vec2(-.5f,  .5f);
-  vs[2].r = glm::vec2( .5f, -.5f);
-  vs[3].r = glm::vec2( .5f,  .5f);
+  vs[2].r = glm::vec2( .5f, -.25f);
+  vs[3].r = glm::vec2( .5f,  .25f);
 
   // Assign indices.
   GLuint is[4] = { 0, 1, 2, 3 };
