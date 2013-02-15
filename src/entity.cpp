@@ -5,12 +5,17 @@ GLuint Entity::vbo;
 
 
 
-Entity::Entity() : rotation(0.f) {
+Entity::Entity() :
+  angularVelocity(0.f),
+  rotation(0.f) {
 }
 
 
 
-Entity::Entity(glm::vec2 &position) : position(position), rotation(0.f) {
+Entity::Entity(glm::vec2 &position) :
+  angularVelocity(0.f),
+  position(position),
+  rotation(0.f) {
 }
 
 
@@ -43,15 +48,10 @@ GLvoid Entity::initialize() {
 
 
 
-GLvoid Entity::update(GLuint delta) {
-}
-
-
-
 GLvoid Entity::render(GLuint program) {
   const static GLuint modelUniform = glGetUniformLocation(program, "model");
-
   const glm::mat4 model = glm::scale(glm::translate(glm::mat4(1.f), glm::vec3(position, 0.f)), glm::vec3(16.f));
+
   glUniformMatrix4fv(modelUniform, 1, GL_FALSE, glm::value_ptr(model));
   glBindBuffer(GL_ARRAY_BUFFER, vbo);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
@@ -66,4 +66,9 @@ GLvoid Entity::render(GLuint program) {
   glDisableVertexAttribArray(1);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
   glBindBuffer(GL_ARRAY_BUFFER, 0);
+}
+
+
+
+GLvoid Entity::update(GLuint delta) {
 }

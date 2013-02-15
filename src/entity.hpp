@@ -18,6 +18,7 @@ class Entity {
     GLvoid render(GLuint);
 
   protected:
+    GLfloat angularVelocity;
     glm::vec2 position;
     GLfloat rotation;
 

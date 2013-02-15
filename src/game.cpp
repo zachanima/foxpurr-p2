@@ -20,8 +20,8 @@ GLvoid Game::initialize() {
   player = new Ship();
 
   // Initialize uniforms.
-  viewUniform =            glGetUniformLocation(program, "view");
-  projectionUniform =      glGetUniformLocation(program, "projection");
+  viewUniform =       glGetUniformLocation(program, "view");
+  projectionUniform = glGetUniformLocation(program, "projection");
   
   // Apply uniforms.
   glUseProgram(program);
@@ -45,9 +45,10 @@ GLvoid Game::update() {
   const GLuint delta = SDL_GetTicks() - ticks;
   ticks = SDL_GetTicks();
 
-  if (Keyboard::isKeyDown(KEY_W)) {
-    player->thrust(delta);
-  }
+  if (Keyboard::isKeyDown(KEY_A)) { player->rotateLeft(delta); }
+  if (Keyboard::isKeyDown(KEY_D)) { player->rotateRight(delta); }
+  if (Keyboard::isKeyDown(KEY_S)) { player->reverse(delta); }
+  if (Keyboard::isKeyDown(KEY_W)) { player->thrust(delta); }
 
   player->update(delta);
 }
