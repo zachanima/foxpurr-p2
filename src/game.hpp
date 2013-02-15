@@ -6,6 +6,7 @@
 #include <glm/gtc/type_ptr.hpp> // glm::value_ptr
 
 #include "lwcppgl/display.hpp"
+#include "lwcppgl/texture.hpp"
 
 #include "entity.hpp"
 #include "ship.hpp"

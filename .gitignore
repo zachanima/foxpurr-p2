@@ -1,3 +1,4 @@
 *.swp
 bin/foxpurr*
+bin/ship.png
 bin/*.dll

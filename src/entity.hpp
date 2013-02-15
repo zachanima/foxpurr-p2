@@ -6,6 +6,8 @@
 #include <glm/gtc/type_ptr.hpp> // glm::value_ptr
 
 #include "lwcppgl/display.hpp"
+#include "lwcppgl/texture.hpp"
+
 #include "vertex.hpp"
 
 class Entity {
@@ -25,6 +27,7 @@ class Entity {
   private:
     static GLuint ibo;
     static GLuint vbo;
+    static Texture *texture;
 };
 
 #endif // ENTITY_HPP
